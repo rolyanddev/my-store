@@ -1,3 +1,65 @@
+<h1>Formulario</h1>
+<form (ngSubmit)="onRegister()" #myForm="ngForm">
+  <div class="input-group">
+    <label for="name">Nombre: </label>
+    <input required type="text" id="name" name="name" [(ngModel)]="register.name">
+    <p>Mensajes de error</p>
+  </div>
+  <div class="input-group">
+    <label for="email">Email: </label>
+    <input required type="email" id="email" name="email" [(ngModel)]="register.email">
+    <p>Mensajes de error</p>
+  </div>
+  <div class="input-group">
+    <label for="password">Password: </label>
+    <input required type="password" id="password" name="password" [(ngModel)]="register.password">
+    <p>Mensajes de error</p>
+  </div>
+  <button [disabled]="myForm.invalid" type="submit">Registrar</button>
+  <button type="button">Acción</button>
+</form>
+<hr>
+<h1>NgClass & NgStyle</h1>
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" />
+<hr class="line-error" [ngClass]="{
+  'valid': nameInput4.valid,
+  'invalid': nameInput4.invalid
+}">
+<p class="message-error" [class.invalid]="nameInput4.invalid">
+  El campo es requerido
+</p>
+<div class="styles">
+  <div>
+    <input type="number" [(ngModel)]="box.width" />
+    <input type="number" [(ngModel)]="box.height" />
+    <input type="color" [value]="box.backgroundColor" [(ngModel)]="box.backgroundColor" />
+  </div>
+  <div>
+    <div [ngStyle]="{
+      'width.px': box.width,
+      'height.px': box.height,
+      'background-color': box.backgroundColor
+    }"></div>
+  </div>
+</div>
+<hr>
+<h1>Class & Style</h1>
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name" />
+<p class="message-error" [class.invalid]="nameInput2.invalid">El campo es requerido</p>
+<label>Nombre</label>
+<input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
+<p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">
+  Lorem ipsum dolor sit amet.
+</p>
+<div class="styles">
+  <div>
+    <input type="number" [(ngModel)]="widthImg" />
+  </div>
+  <div>
+    <img [style.width.%]="widthImg" [src]="person.avatar" [alt]="person.name">
+  </div>
+</div>
+<hr>
 <h1>ngSwitch</h1>
 <input type="text" required [(ngModel)]="person.name" />
 <!-- <p *ngIf="person.name === 'nicolas'">La persona es nicolas</p>
@@ -11,7 +73,7 @@
 </div>
 <hr />
 <h1>*ngFor Objs</h1>
-<div>
+<div class="products-grid">
   <div *ngFor="let product of products">
     <img width="250" [src]="product.image" [alt]="product.name" />
     <h2>{{ product.price }}</h2>
@@ -46,14 +108,7 @@
 <p>Valid: {{ nameInput.valid }}</p>
 
 <p>Age: {{ person.age }}</p>
-<input
-  min="1"
-  max="92"
-  required
-  type="number"
-  #ageInput="ngModel"
-  [(ngModel)]="person.age"
-/>
+<input min="1" max="92" required type="number" #ageInput="ngModel" [(ngModel)]="person.age" />
 <p>Valid: {{ ageInput.valid }}</p>
 <hr />
 <h1>Eventos</h1>

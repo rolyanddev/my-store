@@ -51,6 +51,17 @@ export class AppComponent {
       image: './assets/images/glasses.jpg',
     },
   ];
+  widthImg = 10;
+  box = {
+    width: 100,
+    height: 100,
+    backgroundColor: '#ff0000',
+  };
+  register = {
+    name: '',
+    email: '',
+    password: '',
+  };
 
   toggleButton() {
     this.isButtonDisable = !this.isButtonDisable;
@@ -77,5 +88,9 @@ export class AppComponent {
 
   deleteName(index: number) {
     this.names.splice(index, 1);
+  }
+
+  onRegister() {
+    console.log(this.register);
   }
 }

@@ -6,3 +6,48 @@
   overflow: auto;
   background-color: red;
 }
+
+.products-grid {
+  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.products-grid div img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.products-grid div h2,
+.products-grid div p {
+  margin: 0;
+}
+
+.message-error {
+  opacity: 0;
+  color: white;
+  background-color: red;
+  transition: all linear .5s;
+}
+
+.message-error.invalid {
+  opacity: 1;
+}
+
+.line-error {
+  height: 0;
+  border-bottom: 1px solid;
+}
+
+.line-error.invalid {
+  border-color: red;
+}
+
+.line-error.valid {
+  border-color: green;
+}
+
+.styles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
